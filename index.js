@@ -11,3 +11,7 @@ $('input[name=itemCompras]').keyup(function (event) {
     $('#button').click();
   }
 });
+
+$('form').on('submit', function (e) {
+  e.preventDefault();
+});

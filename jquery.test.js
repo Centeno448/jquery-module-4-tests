@@ -51,3 +51,13 @@ it('index.js al presionar la tecla enter se genera el evento click del div id="b
 
   expect($('input[type="text"]').val()).toBe('');
 });
+
+it('index.js al hacer submit la form ejecuta preventDefault | Asegúrate de que al hacerle submit al form se ejectute el preventDefault', () => {
+  const mock = jest.spyOn(console, 'error').mockImplementation(() => {});
+  let e = $.Event('submit');
+  Object.assign(e, { preventDefault: jest.fn() });
+
+  $('form').trigger(e);
+
+  expect(e.preventDefault).toBeCalled();
+});
